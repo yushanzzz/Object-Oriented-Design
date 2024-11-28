@@ -5,11 +5,37 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.Node;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import java.io.File;
 
 public class MainController {
 
+	  @FXML
+	  private ImageView lblImage;
+	
+	  public void AddImageToRecipe(ActionEvent event) {
+
+	      FileChooser fileChooser = new FileChooser();
+	        
+	      FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.jpeg");
+	      fileChooser.getExtensionFilters().add(filter);
+
+	      File selectedFile = fileChooser.showOpenDialog(new Stage());
+
+	      if (selectedFile != null) {
+
+	         Image image = new Image(selectedFile.toURI().toString());
+	         lblImage.setImage(image);
+	      }
+	   }
+	  
+	  public void RemoveImage(ActionEvent event) {
+		  lblImage.setImage(null);
+	  }
 	
 	  public void switchScene(ActionEvent event, String fxmlFile) {
 	        try {
