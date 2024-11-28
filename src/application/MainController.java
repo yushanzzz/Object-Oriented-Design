@@ -5,6 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.Node;
@@ -96,5 +101,30 @@ public class MainController {
 	    
 	    public void SearchtoUser(ActionEvent event) {
 	        switchScene(event, "User_home.fxml");
+	    }
+	    
+	    public void UserSignUp(ActionEvent event) {
+	        switchScene(event, "SignUpPage.fxml");
+	    }
+	    
+	    public void BacktoLogin(ActionEvent event) {
+	    	switchScene(event, "LoginPage.fxml");
+	    }
+	    
+	    public void AdminLogout(ActionEvent event) {
+	    	switchScene(event, "LoginPage.fxml");
+	    }
+	    
+	    public void UserLogout(ActionEvent event) {
+	    	switchScene(event, "LoginPage.fxml");
+	    }
+	    
+	    public void CreateAcc(ActionEvent event) {
+	    	Dialog<String> dialog = new Dialog<>();
+	    	dialog.setTitle("Success");
+	    	dialog.setContentText("Your account has been successfully created!");
+	    	ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+	    	dialog.getDialogPane().getButtonTypes().add(okButton);
+	    	dialog.showAndWait();
 	    }
 }

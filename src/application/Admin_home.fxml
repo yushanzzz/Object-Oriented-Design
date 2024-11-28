@@ -27,5 +27,10 @@
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font></Button>
+      <Button fx:id="btnLogout" layoutX="24.0" layoutY="28.0" mnemonicParsing="false" onAction="#LogouttoLogin" prefHeight="31.0" prefWidth="86.0" style="-fx-background-radius: 50; -fx-background-radius: 50; -fx-background-color: #DEDEBE;" text="LogOut">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
