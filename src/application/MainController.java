@@ -23,9 +23,52 @@ public class MainController {
 	        }
 	    }
 
+	  // conditional determine (Main to Admin/ User)
 	    public void MaintoAdmin(ActionEvent event) {
-	        switchScene(event, "main.fxml");
+	        switchScene(event, "Admin_home.fxml");
 	    }
 	    
+	    public void MaintoUser(ActionEvent event) {
+	        switchScene(event, "User_home.fxml");
+	    }
 
+	    public void AdmintoMngAcc(ActionEvent event) {
+	        switchScene(event, "ManageAccount.fxml");
+	    }
+	    
+	    public void MngAcctoAdmin(ActionEvent event) {
+	        switchScene(event, "Admin_home.fxml");
+	    }
+	    
+	    public void AdmintoMngRecipe(ActionEvent event) {
+	        switchScene(event, "ManageRecipe.fxml");
+	    }
+	    
+	    public void MngRecipetoAdmin(ActionEvent event) {
+	        switchScene(event, "Admin_home.fxml");
+	    }
+	    
+	    public void UsertoShowRecipe(ActionEvent event) {
+	        switchScene(event, "RecipeShow.fxml");
+	    }
+	    
+	    public void ShowRecipetoUser(ActionEvent event) {
+	        switchScene(event, "User_home.fxml");
+	    }
+	    
+	    public void UsertoCreateRecipe(ActionEvent event) {
+	        switchScene(event, "CreateRecipe.fxml");
+	    }
+	    
+	    public void CreateRecipetoUser(ActionEvent event) {
+	        switchScene(event, "User_home.fxml");
+	    }
+	    
+	    public void UsertoSearch(ActionEvent event) {
+	        switchScene(event, "Search.fxml");
+	    }
+	    
+	    public void SearchtoUser(ActionEvent event) {
+	        switchScene(event, "User_home.fxml");
+	    }
 }

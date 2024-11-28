@@ -19,7 +19,7 @@
             <Font name="Chalkboard Bold" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="btnMAccount" layoutX="139.0" layoutY="239.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="134.0" text="Manage Account" />
-      <Button fx:id="btnMRecipe" layoutX="327.0" layoutY="239.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="134.0" text="Manage Recipe" />
+      <Button fx:id="btnMAccount" layoutX="139.0" layoutY="239.0" mnemonicParsing="false" onAction="#AdmintoMngAcc" prefHeight="42.0" prefWidth="134.0" text="Manage Account" />
+      <Button fx:id="btnMRecipe" layoutX="327.0" layoutY="239.0" mnemonicParsing="false" onAction="#AdmintoMngRecipe" prefHeight="42.0" prefWidth="134.0" text="Manage Recipe" />
    </children>
 </AnchorPane>

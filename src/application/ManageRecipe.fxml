@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="711.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="711.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Button layoutX="22.0" layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="137.0" style="-fx-background-color: #ADD8E6;" text="Back">
+      <Button fx:id="btnBack" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#MngRecipetoAdmin" prefHeight="45.0" prefWidth="137.0" style="-fx-background-color: #ADD8E6;" text="Back">
          <font>
             <Font size="18.0" />
          </font>
