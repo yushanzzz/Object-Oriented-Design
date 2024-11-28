@@ -13,10 +13,10 @@
    <children>
       <ImageView fitHeight="417.0" fitWidth="600.0" opacity="0.45" pickOnBounds="true">
          <image>
-            <Image url="@../../../../Downloads/Carta.jpg" />
+            <Image url="@../image/AddRecipe.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnBack" layoutX="56.0" layoutY="64.0" mnemonicParsing="false" onAction="#goBackPage" prefHeight="31.0" prefWidth="77.0" text="Back" />
+      <Button fx:id="btnBack" layoutX="56.0" layoutY="64.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Back" />
       <Label fx:id="lblName" layoutX="45.0" layoutY="156.0" text="Dish Name" textFill="#110d0d">
          <font>
             <Font name="Chalkboard Bold" size="20.0" />

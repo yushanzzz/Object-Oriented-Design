@@ -23,12 +23,9 @@ public class MainController {
 	        }
 	    }
 
-	    public void goToSecondPage(ActionEvent event) {
-	        switchScene(event, "CreateRecipe.fxml");
+	    public void MaintoAdmin(ActionEvent event) {
+	        switchScene(event, "main.fxml");
 	    }
 	    
-	    public void goBackPage(ActionEvent event) {
-	        switchScene(event, "Admin_home.fxml");
-	    }
 
 }

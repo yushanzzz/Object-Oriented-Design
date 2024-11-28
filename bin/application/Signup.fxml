@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="391.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Bob.png" />
+                  <Image url="@../image/Bob.png" />
                </image>
                <VBox.margin>
                   <Insets left="50.0" />
@@ -31,7 +31,7 @@
          <children>
             <ImageView fitHeight="86.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@profile.png" />
+                  <Image url="@../image/profile.png" />
                </image>
                <VBox.margin>
                   <Insets top="20.0" />

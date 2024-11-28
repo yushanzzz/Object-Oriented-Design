@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" styleClass="vbox_background_center" stylesheets="@application.css" BorderPane.alignment="CENTER">
@@ -28,7 +27,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox prefHeight="229.0" prefWidth="441.0">
+            <HBox prefHeight="229.0" prefWidth="441.0" styleClass="vbox_background_center">
                <children>
                   <Label text="Eats" textFill="#9a6b52">
                      <font>
@@ -58,7 +57,7 @@
                <children>
                   <ImageView fitHeight="151.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@lock.png" />
+                        <Image url="@../image/lock.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="110.0" top="20.0" />
