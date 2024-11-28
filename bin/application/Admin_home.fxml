@@ -14,12 +14,18 @@
             <Image url="@../image/Admin.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="139.0" layoutY="107.0" prefHeight="54.0" prefWidth="322.0" text="Welcome Admin">
+      <Label layoutX="145.0" layoutY="63.0" prefHeight="54.0" prefWidth="322.0" text="Welcome Admin">
          <font>
-            <Font name="Chalkboard Bold" size="40.0" />
+            <Font name="Arial Bold" size="41.0" />
          </font>
       </Label>
-      <Button fx:id="btnMAccount" layoutX="139.0" layoutY="239.0" mnemonicParsing="false" onAction="#AdmintoMngAcc" prefHeight="42.0" prefWidth="134.0" text="Manage Account" />
-      <Button fx:id="btnMRecipe" layoutX="327.0" layoutY="239.0" mnemonicParsing="false" onAction="#AdmintoMngRecipe" prefHeight="42.0" prefWidth="134.0" text="Manage Recipe" />
+      <Button fx:id="btnMAccount" layoutX="312.0" layoutY="275.0" mnemonicParsing="false" onAction="#AdmintoMngAcc" prefHeight="42.0" prefWidth="155.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #FFAF60;" text="Manage Account">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btnMRecipe" layoutX="312.0" layoutY="184.0" mnemonicParsing="false" onAction="#AdmintoMngRecipe" prefHeight="42.0" prefWidth="155.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #FFCBB3;" text="Manage Recipe">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

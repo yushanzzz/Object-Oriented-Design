@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="711.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Button fx:id="btnBack" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#MngRecipetoAdmin" prefHeight="45.0" prefWidth="137.0" style="-fx-background-color: #ADD8E6;" text="Back">
+      <Button fx:id="btnBack" layoutX="25.0" layoutY="26.0" mnemonicParsing="false" onAction="#MngRecipetoAdmin" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #ADD8E6; -fx-background-radius: 50; -fx-border-radius: 50;" text="Back">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <TableView layoutX="127.0" layoutY="85.0" prefHeight="481.0" prefWidth="507.0">
+      <TableView layoutX="57.0" layoutY="102.0" prefHeight="230.0" prefWidth="487.0">
         <columns>
           <TableColumn prefWidth="123.3333740234375" text="Dish Name" />
           <TableColumn prefWidth="113.33331298828125" text="Type" />

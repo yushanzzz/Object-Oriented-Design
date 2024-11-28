@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="731.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <TableView layoutX="115.0" layoutY="84.0" prefHeight="464.0" prefWidth="552.0">
+      <TableView layoutX="56.0" layoutY="130.0" prefHeight="206.0" prefWidth="489.0">
         <columns>
-          <TableColumn prefWidth="280.66668701171875" text="Account Name" />
-          <TableColumn minWidth="-1.0" prefWidth="269.33331298828125" text="Password" />
+          <TableColumn prefWidth="251.0" text="Account Name" />
+          <TableColumn minWidth="-1.0" prefWidth="299.5" text="Password" />
         </columns>
       </TableView>
-      <Button fx:id="btnBack" layoutX="28.0" layoutY="31.0" mnemonicParsing="false" onAction="#MngAcctoAdmin" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #ADD8E6;" text="Back">
+      <Button fx:id="btnBack" layoutX="28.0" layoutY="31.0" mnemonicParsing="false" onAction="#MngAcctoAdmin" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #ADD8E6; -fx-background-radius: 50; -fx-border-radius: 50;" text="Back">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
    </children>
