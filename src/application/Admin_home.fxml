@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="410.0" minWidth="600.0" prefHeight="281.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21.0.5" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <ImageView fitHeight="410.0" fitWidth="600.0" opacity="0.5" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../Downloads/Menu%20Card.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="139.0" layoutY="107.0" prefHeight="54.0" prefWidth="322.0" text="Welcome Admin">
+         <font>
+            <Font name="Chalkboard Bold" size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnMAccount" layoutX="139.0" layoutY="239.0" mnemonicParsing="false" onAction="#goToSecondPage" prefHeight="42.0" prefWidth="134.0" text="Manage Account" />
+      <Button fx:id="btnMRecipe" layoutX="327.0" layoutY="239.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="134.0" text="Manage Recipe" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="711.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="22.0" layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="137.0" style="-fx-background-color: #ADD8E6;" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TableView layoutX="127.0" layoutY="85.0" prefHeight="481.0" prefWidth="507.0">
+        <columns>
+          <TableColumn prefWidth="123.3333740234375" text="Dish Name" />
+          <TableColumn prefWidth="113.33331298828125" text="Type" />
+            <TableColumn prefWidth="133.33331298828125" text="Ingredient" />
+            <TableColumn prefWidth="136.66668701171875" text="Favorite" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
