@@ -53,16 +53,28 @@ public class Configure {
 //		
 //		User u1 = new User("Mark", "123");
 //		users.add(u1);
-		
+		//users.add(new User(username, password));
 		return users;
+		//for (User user : users) {
+	        //if (user.getName().equals(username)) {
+	          //  System.out.println("User already exists!");
+	           // return users; 
+	       // }
+	   // }
+	   // users.add(new User(username, password));
+	    //System.out.println("User added successfully: " + username);
 	}
 	
+	public void addUser(User user) {
+        users.add(user);
+    }
+	
 	public Set<Admin> CreateAdmin() {
-//		Set<Admin> admins = new HashSet<>();
-//		
-//		Admin a1 = new Admin("Admin", "123");
-//		admins.add(a1);
-//		
+		Set<Admin> admins = new HashSet<>();
+		
+		Admin a1 = new Admin("Admin", "123");
+		admins.add(a1);
+		
 		return admins;
 	}
 	
@@ -80,6 +92,15 @@ public class Configure {
 	public boolean isAdmin(String username, String password) {
         for (Admin admin : admins) {
             if (admin.getName().equals(username) && admin.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+	
+	public boolean isUsernameTaken(String username) {
+        for (User user : users) {
+            if (user.getName().equals(username)) {
                 return true;
             }
         }

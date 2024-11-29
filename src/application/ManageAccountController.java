@@ -13,13 +13,13 @@ import java.util.Set;
 public class ManageAccountController {
 
     @FXML
-    private TableView<Person> accountTableView;
+    private TableView<User> accountTableView;
 
     @FXML
-    private TableColumn<Person, String> columnName;
+    private TableColumn<User, String> columnName;
 
     @FXML
-    private TableColumn<Person, String> columnPassword;
+    private TableColumn<User, String> columnPassword;
 
     @FXML
     public void initialize() {
@@ -29,7 +29,7 @@ public class ManageAccountController {
 
         // 加载用户数据
         Set<User> users = Configure.getInstance().getUsers();
-        ObservableList<Person> userData = FXCollections.observableArrayList(users);
+        ObservableList<User> userData = FXCollections.observableArrayList(users);
         accountTableView.setItems(userData);
     }
 

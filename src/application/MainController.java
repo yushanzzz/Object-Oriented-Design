@@ -12,9 +12,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
 import javafx.stage.Window;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.TextField;
 
 
 public class MainController {    
@@ -133,5 +135,97 @@ public class MainController {
 	        Stage stage = (Stage) Stage.getWindows().filtered(Window::isShowing).get(0);
 	        stage.setScene(new Scene(root));
 	        stage.show();
+	    }
+	    
+	    @FXML
+	    private TextField usernameField;
+
+	    @FXML
+	    private TextField passwordField;
+
+	    @FXML
+	    private Button loginButton;
+
+	    public void handleLogin(ActionEvent event) {
+	        String username = usernameField.getText();
+	        String password = passwordField.getText();
+	        System.out.print("username = " + usernameField.getText() + "  password =" + passwordField.getText() );
+	        
+	        Configure configure = Configure.getInstance();
+	        
+	        
+	        if (configure.isAdmin(username, password)) {
+	            
+	            switchToScene("Admin_home.fxml");
+	        } else if (configure.isUser(username, password)) {
+	            
+	            switchToScene("User_home.fxml");
+	        } else {
+	            
+	            showErrorDialog("Invalid username or password!");
+	        }
+	    }
+	    
+	    public void switchToScene(String fxmlFile) {
+	        try {
+	            Parent newPage = FXMLLoader.load(getClass().getResource(fxmlFile));
+	            Scene newScene = new Scene(newPage);
+	            Stage stage = (Stage) usernameField.getScene().getWindow();  
+	            stage.setScene(newScene);
+	            stage.show();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    public void showErrorDialog(String message) {
+	        Dialog<String> dialog = new Dialog<>();
+	        dialog.setTitle("Login Error");
+	        dialog.setContentText(message);
+
+	        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+	        dialog.getDialogPane().getButtonTypes().add(okButton);
+	        
+	        dialog.showAndWait();
+	    }
+	    
+	    @FXML
+	    private TextField signUpUsernameField;
+
+	    @FXML
+	    private TextField signUpPasswordField;
+
+	    public void handleSignUp(ActionEvent event) {
+	        String name = signUpUsernameField.getText();
+	        String password = signUpPasswordField.getText();
+	        if (!name.matches("^[a-zA-Z0-9]+$")) {
+	            showErrorDialog("Username can only contain letters and numbers!");
+	            return;
+	        }
+
+	       
+	        Configure configure = Configure.getInstance();
+	        if (configure.isUsernameTaken(name)) {
+	            showErrorDialog("Username is already taken!");
+	        } else {
+	        User newUser = new User(name, password);
+	        configure.addUser(newUser);  
+
+	        
+	        switchScene(event, "LoginPage.fxml");
+
+	       
+	        showSuccessDialog("Account created successfully!");
+	    }
+	    }
+
+	    public void showSuccessDialog(String message) {
+	        Dialog<String> dialog = new Dialog<>();
+	        dialog.setTitle("Success");
+	        dialog.setContentText(message);
+	        
+	        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+	        dialog.getDialogPane().getButtonTypes().add(okButton);
+	        dialog.showAndWait();
 	    }
 }

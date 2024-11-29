@@ -35,14 +35,14 @@
             <Font name="Arial Bold" size="25.0" />
          </font>
       </Label>
-      <TextField layoutX="188.0" layoutY="212.0" prefHeight="26.0" prefWidth="173.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
-      <TextField layoutX="188.0" layoutY="284.0" prefHeight="26.0" prefWidth="173.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
+      <TextField fx:id="signUpUsernameField" layoutX="188.0" layoutY="212.0" prefHeight="26.0" prefWidth="173.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
+      <TextField fx:id="signUpPasswordField" layoutX="188.0" layoutY="284.0" prefHeight="26.0" prefWidth="173.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
       <Button fx:id="btnBack" layoutX="28.0" layoutY="22.0" mnemonicParsing="false" onAction="#BacktoLogin" prefHeight="31.0" prefWidth="76.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #B0C4DE;" text="Back">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnCreate" layoutX="178.0" layoutY="339.0" mnemonicParsing="false" onAction="#CreateAcc" prefHeight="35.0" prefWidth="109.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #FFC78E;" text="Create">
+      <Button fx:id="btnCreate" layoutX="178.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="35.0" prefWidth="109.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #FFC78E;" text="Create">
          <font>
             <Font name="Arial Bold" size="19.0" />
          </font>
