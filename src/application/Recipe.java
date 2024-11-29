@@ -1,18 +1,22 @@
 package application;
 
 import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
 
 public class Recipe {
 	
 	ArrayList<Recipe> allrecipe = new ArrayList<>();
-	String name;
-	String type;
-	ArrayList<String> ingredient;
+//	String name;
+//	String type;
+//	ArrayList<String> ingredient;
+	private SimpleStringProperty name;
+    private SimpleStringProperty type;
+    private SimpleStringProperty ingredient;
 	
-	public Recipe(String name, String type, ArrayList<String> ingredient) {
-		this.name = name;
-		this.type = type;
-		this.ingredient = ingredient;
+	public Recipe(String name, String type, ArrayList<String> ingredients) {
+		this.name = new SimpleStringProperty(name);
+        this.type = new SimpleStringProperty(type);
+        this.ingredient = new SimpleStringProperty(String.join(", ", ingredients));
 	}
 
 	public ArrayList<Recipe> getAllrecipe() {
@@ -20,15 +24,28 @@ public class Recipe {
 	}
 	
 	public String getName() {
-		return name;
+		return name.get();
 	}
+	
+	public void setName(String name) {
+        this.name.set(name);
+    }
+
 
 	public String getType() {
-		return type;
+		return type.get();
 	}
+	
+	public void setType(String type) {
+        this.type.set(type);
+    }
 
-	public ArrayList<String> getIngredient() {
-		return ingredient;
+	public String getIngredient() {
+		return ingredient.get();
 	}
+	
+	public void setIngredient(String ingredient) {
+        this.ingredient.set(ingredient);
+    }
 
 }

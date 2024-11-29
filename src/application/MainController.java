@@ -5,20 +5,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.Node;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
+import javafx.stage.Window;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 
-public class MainController {
 
+public class MainController {    
 	  @FXML
 	  private ImageView lblImage;
 	
@@ -126,5 +125,13 @@ public class MainController {
 	    	ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
 	    	dialog.getDialogPane().getButtonTypes().add(okButton);
 	    	dialog.showAndWait();
+	    }
+	    
+	    public static void switchSceneStatic(String fxmlFile) throws Exception {
+	        FXMLLoader loader = new FXMLLoader(MainController.class.getResource(fxmlFile));
+	        Parent root = loader.load();
+	        Stage stage = (Stage) Stage.getWindows().filtered(Window::isShowing).get(0);
+	        stage.setScene(new Scene(root));
+	        stage.show();
 	    }
 }

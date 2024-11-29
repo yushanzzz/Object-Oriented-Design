@@ -64,7 +64,7 @@
                   </TextField>
                </children>
             </HBox>
-            <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#MaintoAdmin" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #B0C4DE;" text="Login">
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #B0C4DE;" text="Login">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
