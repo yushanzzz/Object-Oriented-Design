@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Configure {
+	
 	private static Configure instance = null;
-
     private ArrayList<String> i1 = new ArrayList<>();
     private ArrayList<String> i2 = new ArrayList<>();
     private ArrayList<Recipe> recipes = new ArrayList<>();
@@ -39,30 +39,11 @@ public class Configure {
     }
 	
 	public ArrayList<Recipe> getRecipes() {
-//		ArrayList<Recipe> recipes = new ArrayList<>();
-//		Recipe r1 = new Recipe("Chicken Soup", "Soup", i1);
-//		Recipe r2 = new Recipe("Cake", "Dessert", i2);
-//		recipes.add(r1);
-//		recipes.add(r2);
-		
 		return recipes;
 	}
 	
 	public Set<User> getUsers() {
-//		Set<User> users = new HashSet<>();
-//		
-//		User u1 = new User("Mark", "123");
-//		users.add(u1);
-		//users.add(new User(username, password));
 		return users;
-		//for (User user : users) {
-	        //if (user.getName().equals(username)) {
-	          //  System.out.println("User already exists!");
-	           // return users; 
-	       // }
-	   // }
-	   // users.add(new User(username, password));
-	    //System.out.println("User added successfully: " + username);
 	}
 	
 	public void addUser(User user) {
@@ -78,7 +59,7 @@ public class Configure {
 		return admins;
 	}
 	
-	// check user
+	// check if the username & pwd corresponds to user
 	public boolean isUser(String username, String password) {
         for (User user : users) {
             if (user.getName().equals(username) && user.getPassword().equals(password)) {
@@ -88,7 +69,7 @@ public class Configure {
         return false;
     }
 	
-	// check admin
+	// check if the username & pwd corresponds to admin
 	public boolean isAdmin(String username, String password) {
         for (Admin admin : admins) {
             if (admin.getName().equals(username) && admin.getPassword().equals(password)) {
@@ -97,7 +78,7 @@ public class Configure {
         }
         return false;
     }
-	
+	// check if the username is already registered
 	public boolean isUsernameTaken(String username) {
         for (User user : users) {
             if (user.getName().equals(username)) {

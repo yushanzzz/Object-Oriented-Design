@@ -5,7 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
@@ -17,14 +17,14 @@
       </Label>
       <ScrollPane layoutX="39.0" layoutY="143.0" prefHeight="226.0" prefWidth="517.0">
          <content>
-            <HBox fx:id="recipeButtonsContainer" prefHeight="212.0" prefWidth="515.0">
+            <FlowPane fx:id="recipeButtonsContainer" prefHeight="212.0" prefWidth="515.0">
                <children>
                   <Button fx:id="btnRecipe" minHeight="83.0" minWidth="100.0" mnemonicParsing="false" onAction="#showRecipe" prefHeight="83.0" prefWidth="104.0" text="Chicken Soup" />
                </children>
-            </HBox>
+            </FlowPane>
          </content>
       </ScrollPane>
-      <TextField fx:id="txtSearch" layoutX="290.0" layoutY="97.0" prefHeight="30.0" prefWidth="178.0" promptText="Enter Ingrident ...." style="-fx-background-radius: 50; -fx-border-radius: 50;" />
+      <TextField fx:id="txtSearch" layoutX="290.0" layoutY="97.0" prefHeight="30.0" prefWidth="178.0" promptText="Enter Ingredient ...." style="-fx-background-radius: 50; -fx-border-radius: 50;" />
       <Button fx:id="btnSearch" layoutX="480.0" layoutY="100.0" mnemonicParsing="false" onAction="#UsertoSearch" prefHeight="25.0" prefWidth="71.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #A3D1D1;" text="Search">
          <font>
             <Font name="Arial Bold" size="13.0" />
@@ -35,7 +35,7 @@
             <Font name="Arial Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogOut" layoutX="22.0" layoutY="27.0" mnemonicParsing="false" onAction="#UserLogout" style="-fx-background-color: #FFD1A4; -fx-background-radius: 50; -fx-border-radius: 50;" text="LogOut">
+      <Button fx:id="btnLogOut" layoutX="22.0" layoutY="27.0" mnemonicParsing="false" onAction="#Logout" style="-fx-background-color: #FFD1A4; -fx-background-radius: 50; -fx-border-radius: 50;" text="LogOut">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>

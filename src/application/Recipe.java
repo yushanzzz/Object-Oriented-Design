@@ -10,8 +10,6 @@ import javafx.scene.image.Image;
 public class Recipe {
 	
 	ArrayList<Recipe> allrecipe = new ArrayList<>();
-//	String name;
-//	String type;
 	ArrayList<String> ingredientArray;
 	private SimpleStringProperty name;
     private SimpleStringProperty type;
@@ -41,7 +39,6 @@ public class Recipe {
         this.name.set(name);
     }
 
-
 	public String getType() {
 		return type.get();
 	}
@@ -67,7 +64,6 @@ public class Recipe {
         return favorite;
     }
 
-	
 	public int getFavorite() {
 		return favorite.get();
 	}
@@ -76,14 +72,12 @@ public class Recipe {
         this.favorite.set(favorite);
     }
 
-    // 增加 favorite 數量
     public void incrementFavorite() {
         this.favorite.set(this.favorite.get() + 1);
     }
     
-
     public void setImage(Image image) {
-        this.image = image;
+    	this.image = image;
         if (image != null) {
             this.imagePath = image.getUrl();
         }
@@ -95,6 +89,5 @@ public class Recipe {
         }
         return image;
     }
-    
 
 }

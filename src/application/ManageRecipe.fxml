@@ -21,5 +21,6 @@
             <TableColumn fx:id="columnFavorite" prefWidth="136.66668701171875" text="Favorite" />
         </columns>
       </TableView>
+      <Button fx:id="btnDeleteRecipe" layoutX="220.0" layoutY="350.0" text="Delete Selected Recipe" onAction="#handleDeleteRecipe" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #ADD8E6; -fx-background-radius: 50; -fx-border-radius: 50;" />
    </children>
 </AnchorPane>

@@ -20,4 +20,5 @@
          </font>
       </Button>
    </children>
+   <Button fx:id="btnDeleteUser" layoutX="220.0" layoutY="350.0" mnemonicParsing="false" text="Delete Selected User" onAction="#handleDeleteUser" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #ADD8E6; -fx-background-radius: 50; -fx-border-radius: 50;" />
 </AnchorPane>

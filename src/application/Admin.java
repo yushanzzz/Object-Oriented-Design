@@ -10,7 +10,7 @@ public class Admin extends Person{
 	}
 	
 	public void viewAllUsers() {
-        Set<User> users = Configure.getInstance().getUsers(); 
+        Set<User> users = Configure.getInstance().getUsers(); //get Userlist from Configure class
         System.out.println("All Users:");
         for (User user : users) {
             System.out.println("Name: " + user.getName());
@@ -18,7 +18,7 @@ public class Admin extends Person{
     }
 	
 	public void viewAllRecipes() {
-        ArrayList<Recipe> recipes = Configure.getInstance().getRecipes(); // 从 Configure 获取食谱列表
+        ArrayList<Recipe> recipes = Configure.getInstance().getRecipes(); // get Recipelist from Configure class
         System.out.println("All Recipes:");
         for (Recipe recipe : recipes) {
             System.out.println("Name: " + recipe.getName());
