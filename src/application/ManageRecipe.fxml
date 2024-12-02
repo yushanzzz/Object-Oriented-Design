@@ -18,7 +18,7 @@
           <TableColumn fx:id="columnDishName" prefWidth="123.3333740234375" text="Dish Name" />
           <TableColumn fx:id="columnType" prefWidth="113.33331298828125" text="Type" />
             <TableColumn fx:id="columnIngredients" prefWidth="133.33331298828125" text="Ingredient" />
-            <TableColumn prefWidth="136.66668701171875" text="Favorite" />
+            <TableColumn fx:id="columnFavorite" prefWidth="136.66668701171875" text="Favorite" />
         </columns>
       </TableView>
    </children>

@@ -15,7 +15,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Admin_home.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("User_home.fxml"));
 			Scene scene = new Scene(root,600,400);
 			
 			primaryStage.setScene(scene);
@@ -56,7 +56,7 @@ public class Main extends Application {
 		        ArrayList<String> newIngredients = new ArrayList<>();
 		        newIngredients.add("butter");
 		        newIngredients.add("sugar");
-		        user.addRecipe("Butter Cake", "Dessert", newIngredients);
+		        user.addRecipe("Butter Cake", "Dessert", newIngredients, "image/butter_cake.png");
 		        
 		        System.out.println("\nSearching recipes with 'butter': ");
 		        user.searchRecipe("butter");

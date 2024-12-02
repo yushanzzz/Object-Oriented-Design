@@ -21,6 +21,9 @@ public class ManageRecipeController {
 
     @FXML
     private TableColumn<Recipe, String> columnIngredients;
+    
+    @FXML
+    private TableColumn<Recipe, String> columnFavorite;
 
     @FXML
     public void initialize() {
@@ -28,6 +31,8 @@ public class ManageRecipeController {
     	columnDishName.setCellValueFactory(new PropertyValueFactory<>("name"));
     	columnType.setCellValueFactory(new PropertyValueFactory<>("type"));
     	columnIngredients.setCellValueFactory(new PropertyValueFactory<>("ingredient"));
+    	columnFavorite.setCellValueFactory(new PropertyValueFactory<>("favorite"));
+    	
 
         // 加载配方数据
         ObservableList<Recipe> recipes = FXCollections.observableArrayList(Configure.getInstance().getRecipes());

@@ -44,7 +44,7 @@
             <Font name="Arial Bold" size="14.0" />
          </font></Button>
       <ImageView fx:id="lblImage" fitHeight="188.0" fitWidth="200.0" layoutX="373.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnSave" layoutX="441.0" layoutY="336.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #FFAAD5;" text="Save">
+      <Button fx:id="btnSave" layoutX="434.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleSaveRecipe" prefHeight="26.0" prefWidth="77.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #FFAAD5;" text="Save">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font></Button>

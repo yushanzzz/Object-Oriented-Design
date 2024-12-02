@@ -30,8 +30,8 @@ public class Configure {
         i2.add("flour");
         i2.add("sugar");
 
-        recipes.add(new Recipe("Chicken Soup", "Soup", i1));
-        recipes.add(new Recipe("Cake", "Dessert", i2));
+        recipes.add(new Recipe("Chicken Soup", "Soup", i1, "image/chicken_soup.png"));
+        recipes.add(new Recipe("Cake", "Dessert", i2, "image/cake.png"));
 
         users.add(new User("Mark", "123"));
 

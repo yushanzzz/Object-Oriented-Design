@@ -8,9 +8,9 @@ public class User extends Person{
 		super(name, pwd);
 	}
 
-	public void addRecipe(String name, String type, ArrayList<String> ingredient) {
+	public void addRecipe(String name, String type, ArrayList<String> ingredient, String imgpath) {
 		ArrayList<Recipe> recipeArray = Configure.getInstance().getRecipes();
-		Recipe myRecipe = new Recipe(name, type, ingredient);
+		Recipe myRecipe = new Recipe(name, type, ingredient, imgpath);
 		recipeArray.add(myRecipe);
 		System.out.println("Recipe added: " + name);
 	}

@@ -1,5 +1,6 @@
 package application;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,21 +8,85 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.Node;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.stage.Window;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 
 public class MainController {    
 	  @FXML
-	  private ImageView lblImage;
+	    private ImageView lblImage;
+	  @FXML
+	    private TextField txtName; 
+	    
+	    @FXML
+	    private TextField txtType; 
+	    
+	    @FXML
+	    private TextField txtSearch;
+	    
+	    @FXML
+	    private TextArea txtIngredient;
+	    
+	    @FXML
+	    private HBox recipeButtonsContainer; 
+	    
+	    @FXML
+	    private void handleSaveButton(ActionEvent event) {
+	        try {
+	            System.out.println("Save button clicked!");
+	        } catch (Exception e) {
+	            e.printStackTrace(); 
+	        }
+	    }
+	    
+	    
+	    private File selectedImageFile; 
+	  
+	  private Configure configure = Configure.getInstance();  // 獲取 Configure 類的單例
+	  
+	  @FXML
+	  private void initialize() {
+		  if (recipeButtonsContainer == null) {
+		        System.out.println("recipeButtonsContainer is null");
+		    } else {
+		        loadRecipeButtons();
+		    }
+		  //loadRecipeButtons();
+		  
+	  }
+	  
+	  private void loadRecipeButtons() {
+	        recipeButtonsContainer.getChildren().clear();  
+	        ArrayList<Recipe> recipes = configure.getRecipes();  
+
+	        for (Recipe recipe : recipes) {
+	            Button recipeButton = new Button(recipe.getName());
+	            recipeButton.setMinWidth(125);  
+	            recipeButton.setMaxWidth(125);  
+	            recipeButton.setPrefWidth(125); 
+	            recipeButton.setStyle("-fx-padding: 10; -fx-alignment: center; -fx-background-color: lightgray; -fx-border-color: black; -fx-border-width: 2;");
+	            recipeButton.setOnAction(event -> showRecipeDetails(recipe));  
+	            recipeButtonsContainer.getChildren().add(recipeButton);  
+	        }
+	    }
+
 	
 	  public void AddImageToRecipe(ActionEvent event) {
 
@@ -36,12 +101,97 @@ public class MainController {
 
 	         Image image = new Image(selectedFile.toURI().toString());
 	         lblImage.setImage(image);
+	         this.selectedImageFile = selectedFile;
 	      }
 	   }
 	  
 	  public void RemoveImage(ActionEvent event) {
 		  lblImage.setImage(null);
+		  selectedImageFile = null;
 	  }
+	  
+	  
+	  public void handleSaveRecipe(ActionEvent event) {
+	        String dishName = txtName.getText();
+	        String type = txtType.getText();
+	        String ingredientsText = txtIngredient.getText();
+
+	        if (dishName.isEmpty() || type.isEmpty() || ingredientsText.isEmpty()) {
+	            showAlert("Error", "Please fill in all fields!");
+	            return;
+	        }
+	        
+	        ArrayList<String> ingredients = new ArrayList<>();
+	        for (String ingredient : ingredientsText.split(",")) {
+	            ingredients.add(ingredient.trim());
+	        }
+	        String imagePath = selectedImageFile != null ? selectedImageFile.toURI().toString() : null;
+	        Recipe newRecipe = new Recipe(dishName, type, ingredients, imagePath);
+	        
+//	        if (selectedImageFile != null) {
+//	            Image image = new Image(selectedImageFile.toURI().toString());
+//	            newRecipe.setImage(image);
+//	        }
+	        configure.getRecipes().add(newRecipe);
+	        txtName.clear();
+	        txtType.clear();
+	        txtIngredient.clear();
+	        lblImage.setImage(null);
+	        selectedImageFile = null;
+	        
+	        addRecipeButton(newRecipe);
+	        showAlert("Success", "Recipe added successfully!");
+	        
+	        
+	        
+	/*        try {
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/AnotherScene.fxml"));
+	            Parent root = loader.load();
+	            MainController controller = loader.getController();
+
+	            Stage stage = (Stage) recipeButtonsContainer.getScene().getWindow();
+	            stage.setScene(new Scene(root));
+	            stage.show();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }                          */
+	    }
+	  
+	  private void addRecipeButton(Recipe recipe) {
+		  if (recipeButtonsContainer == null) {
+		        System.out.println("recipeButtonsContainer is null");
+		        return;
+		    }
+		  
+	        Button recipeButton = new Button(recipe.getName());
+	        recipeButton.setOnAction(event -> showRecipeDetails(recipe)); 
+	        recipeButtonsContainer.getChildren().add(recipeButton); 
+	    }
+	        
+	   private void showAlert(String title, String message) {
+	            Alert alert = new Alert(AlertType.INFORMATION);
+	            alert.setTitle(title);
+	            alert.setHeaderText(null);
+	            alert.setContentText(message);
+	            alert.showAndWait();
+	    }
+	  
+	  
+	    private void showRecipeDetails(Recipe recipe) {
+	            try {
+	                FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/RecipeShow.fxml"));
+	           //     loader.setController(this);
+	                Parent root = loader.load();
+
+	                RecipeShowController controller = loader.getController();
+	                controller.showRecipeDetails(recipe);
+
+	                Stage stage = (Stage) recipeButtonsContainer.getScene().getWindow(); 
+	                stage.setScene(new Scene(root));
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	    }
 	
 	  public void switchScene(ActionEvent event, String fxmlFile) {
 	        try {
@@ -97,7 +247,8 @@ public class MainController {
 	    }
 	    
 	    public void UsertoSearch(ActionEvent event) {
-	        switchScene(event, "Search.fxml");
+	        //switchScene(event, "Search.fxml");
+	    	showSearchTable();
 	    }
 	    
 	    public void SearchtoUser(ActionEvent event) {
@@ -228,4 +379,92 @@ public class MainController {
 	        dialog.getDialogPane().getButtonTypes().add(okButton);
 	        dialog.showAndWait();
 	    }
+	    
+	    
+	    @FXML
+	    public void showRecipe(ActionEvent event) {
+	        Button srcbtn = (Button) event.getSource();
+	        String btntxt = srcbtn.getText();
+
+	        ArrayList<Recipe> recipes = configure.getRecipes();
+	        for (Recipe recipe : recipes) {
+	            if (recipe.getName().equals(btntxt)) {
+	                // 找到相應的食譜，並進行頁面切換
+	                showRecipeDetails(recipe);
+	                break;
+	            }
+	        }
+	    }
+	    
+
+	 /*   private void showRecipeDetails(Recipe recipe, ActionEvent event) {
+	        try {
+	            // 加載 RecipeShow.fxml
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/RecipeShow.fxml"));
+	            Parent root = loader.load();
+
+	            // 獲取 RecipeShowController
+	            RecipeShowController controller = loader.getController();
+
+	            // 傳遞食譜數據到 RecipeShowController
+	            controller.showRecipeDetails(recipe);
+
+	            // 顯示新的場景
+	            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // 使用事件來源來獲取 Stage
+	            stage.setScene(new Scene(root));
+	            stage.show();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    */
+	    
+	    public void showSearchTable() {
+	    	String searchIngredient = txtSearch.getText();
+	    	if (searchIngredient.isEmpty()) {
+	            showAlert("Warning", "Search field cannot be empty!");
+	            return;
+	        }
+	    	ArrayList<Recipe> filteredRecipes = searchRecipes(searchIngredient);
+	    	
+	    	if (filteredRecipes.isEmpty()) {
+	            showAlert("Info", "No recipes found for the given ingredient.");
+	            return;
+	        }
+	    	
+	    	recipeButtonsContainer.getChildren().clear();  
+
+	        for (Recipe recipe : filteredRecipes) {
+	            Button recipeButton = new Button(recipe.getName());
+	            recipeButton.setMinWidth(125);  
+	            recipeButton.setMaxWidth(125);  
+	            recipeButton.setPrefWidth(125); 
+	            recipeButton.setStyle("-fx-padding: 10; -fx-alignment: center; -fx-background-color: lightgray; -fx-border-color: black; -fx-border-width: 2;");
+	            recipeButton.setOnAction(event -> showRecipeDetails(recipe));  
+	            recipeButtonsContainer.getChildren().add(recipeButton);  
+	        }
+	    }
+	    
+	    public ArrayList<Recipe> searchRecipes(String ingredient) {
+	        System.out.println("Searching for ingredient: " + ingredient);
+//	        if (ingredient.isEmpty()) {
+//	            //recipeTableView.setItems(FXCollections.observableArrayList());
+//	            return;
+//	        }
+
+	        ArrayList<Recipe> filteredRecipes = new ArrayList<>();
+	        for (Recipe recipe : Configure.getInstance().getRecipes()) {
+	        	System.out.println("Checking recipe: " + recipe.getName() + ", Ingredients: " + recipe.getIngredientArray());
+	            for (String recipeIngredient : recipe.getIngredientArray()) {
+	            	System.out.println("Matching input: " + ingredient + " with ingredient: " + recipeIngredient.toLowerCase());
+	                if (recipeIngredient.toLowerCase().contains(ingredient)) {
+	                    filteredRecipes.add(recipe);
+	                    break;
+	                }
+	            }
+	        }
+	        
+	        return filteredRecipes;
+	    }
+	    
 }
