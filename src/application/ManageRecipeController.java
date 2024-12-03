@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Iterator;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -36,11 +38,22 @@ public class ManageRecipeController {
     
     @FXML
     private void handleDeleteRecipe(ActionEvent event) {
-        Recipe selectedRecipe = recipeTableView.getSelectionModel().getSelectedItem();
+    	Recipe selectedRecipe = recipeTableView.getSelectionModel().getSelectedItem();
         if (selectedRecipe != null) {
-            Configure.getInstance().getRecipes().remove(selectedRecipe);
-            recipeTableView.getItems().remove(selectedRecipe);
-            System.out.println("Recipe deleted: " + selectedRecipe.getName());
+            ObservableList<Recipe> recipes = recipeTableView.getItems();
+            Iterator<Recipe> iterator = recipes.iterator();
+
+            while (iterator.hasNext()) {
+                Recipe recipe = iterator.next();
+                if (recipe.equals(selectedRecipe)) { 
+                    iterator.remove();
+                    Configure.getInstance().getRecipes().remove(selectedRecipe);
+                    System.out.println("Recipe deleted: " + selectedRecipe.getName());
+                    break;
+                }
+            }
+
+            recipeTableView.refresh();
         } else {
             System.out.println("No recipe selected!");
         }
