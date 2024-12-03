@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class SignUpPageController {
@@ -12,7 +13,7 @@ public class SignUpPageController {
     @FXML
     private TextField signUpUsernameField;
     @FXML
-    private TextField signUpPasswordField;
+    private PasswordField signUpPasswordField;
 
     
     public void handleSignUp(ActionEvent event) {

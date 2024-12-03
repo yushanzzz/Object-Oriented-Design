@@ -25,6 +25,8 @@ public class CreateRecipeController {
     @FXML
     private TextArea txtIngredient;
     @FXML
+    private TextArea txtDirection;
+    @FXML
     private File selectedImageFile; 
     @FXML
     private Configure configure = Configure.getInstance();  // get Configure object
@@ -58,8 +60,9 @@ public class CreateRecipeController {
     	String dishName = txtName.getText();
         String type = txtType.getText();
         String ingredientsText = txtIngredient.getText();
+        String directionsText = txtDirection.getText();
 
-        if (dishName.isEmpty() || type.isEmpty() || ingredientsText.isEmpty()) {
+        if (dishName.isEmpty() || type.isEmpty() || ingredientsText.isEmpty() || directionsText.isEmpty()) {
         	showAlert("Error", "Please fill in all fields!");
         	return;
         }
@@ -70,13 +73,14 @@ public class CreateRecipeController {
         }
         
         String imagePath = selectedImageFile != null ? selectedImageFile.toURI().toString() : null;
-        Recipe newRecipe = new Recipe(dishName, type, ingredients, imagePath);
+        Recipe newRecipe = new Recipe(dishName, type, ingredients, directionsText, imagePath);
         
         // After created recipe, the TextFields in CreateRecipe will be removed
         configure.getRecipes().add(newRecipe);
         txtName.clear();
         txtType.clear();
         txtIngredient.clear();
+        txtDirection.clear();
         lblImage.setImage(null);
         selectedImageFile = null;
         

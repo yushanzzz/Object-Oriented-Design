@@ -9,9 +9,9 @@ public class User extends Person{
 	}
 	
 	// enabling to implement user.addRecipe()
-	public void addRecipe(String name, String type, ArrayList<String> ingredient, String imgpath) {
+	public void addRecipe(String name, String type, ArrayList<String> ingredient, String direction, String imgpath) {
 		ArrayList<Recipe> recipeArray = Configure.getInstance().getRecipes();
-		Recipe myRecipe = new Recipe(name, type, ingredient, imgpath);
+		Recipe myRecipe = new Recipe(name, type, ingredient, direction, imgpath);
 		recipeArray.add(myRecipe);
 		System.out.println("Recipe added: " + name);
 	}

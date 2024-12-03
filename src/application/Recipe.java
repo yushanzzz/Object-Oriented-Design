@@ -14,14 +14,16 @@ public class Recipe {
 	private SimpleStringProperty name;
     private SimpleStringProperty type;
     private SimpleStringProperty ingredient;
+	private SimpleStringProperty direction;
     private SimpleIntegerProperty favorite;
     private transient Image image;
     private String imagePath;
 	
-	public Recipe(String name, String type, ArrayList<String> ingredients, String imgpath) {
+	public Recipe(String name, String type, ArrayList<String> ingredients, String directions, String imgpath) {
 		this.name = new SimpleStringProperty(name);
         this.type = new SimpleStringProperty(type);
         this.ingredient = new SimpleStringProperty(String.join(", ", ingredients));
+        this.direction = new SimpleStringProperty(directions);
         this.favorite = new SimpleIntegerProperty(0);
         this.ingredientArray = ingredients;
         this.imagePath = imgpath;
@@ -59,6 +61,15 @@ public class Recipe {
 	public void setIngredient(String ingredient) {
         this.ingredient.set(ingredient);
     }
+	
+    public String getDirection() {
+		return direction.get();
+	}
+
+	public void setDirection(SimpleStringProperty direction) {
+		this.direction = direction;
+	}
+
 	
     public IntegerProperty favoriteProperty() {
         return favorite;

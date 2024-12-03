@@ -17,6 +17,8 @@ public class RecipeShowController {
     @FXML
     private Label ingredient;
     @FXML
+    private Label direction;
+    @FXML
     private Button btnBack;
     @FXML
     private Label lblfav;
@@ -33,6 +35,7 @@ public class RecipeShowController {
         dishName.setText(recipe.getName());
         type.setText(recipe.getType());
         ingredient.setText(String.join(", ", recipe.getIngredient()));
+        direction.setText(recipe.getDirection());
         lblfav.textProperty().bind(Bindings.format("Favorites: \t\t%d", recipe.favoriteProperty()));
         
         if (recipeImageView == null) {
